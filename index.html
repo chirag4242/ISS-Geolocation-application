@@ -6,9 +6,27 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>API Geolocation</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.2/dist/leaflet.css"
+        integrity="sha256-sA+zWATbFveLLNqWO2gtiw3HL/lh1giY/Inf1BJ0z14=" crossorigin="" />
+    <!-- Make sure you put this AFTER Leaflet's CSS -->
+    <script src="https://unpkg.com/leaflet@1.9.2/dist/leaflet.js"
+        integrity="sha256-o9N1jGDZrf5tS+Ft4gbIK7mYMipq9lqpVJ91xHSyKhg=" crossorigin=""></script>
+
+    <style type="text/css">
+        #mapContainer {
+            height: 180px;
+        }
+    </style>
 </head>
 
 <body>
+    <h1>Where is the ISS?</h1>
+    <p>
+        longitude : <span id="long"></span>
+        latitude : <span id="lat"></span>
+    </p>
+    <div id="mapContainer"></div>
+
 
     <script type="text/javascript" src="./script.js"></script>
 </body>
