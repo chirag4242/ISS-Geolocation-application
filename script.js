@@ -4,7 +4,7 @@ const api_URL = `https://api.wheretheiss.at/v1/satellites/25544`;
 //Making a custom icon marker 
 const issIcon = L.icon({
     iconUrl: './iss200.png',
-    iconSize: [100, 50],
+    iconSize: [100, 60],
     iconAnchor: [25, 16]
 });
 
@@ -19,15 +19,18 @@ tiles.addTo(map);
 
 
 //function to retrieve a data from an api using fetch and seting up with latitude and longitude
+
 async function getData()
 {
     const response = await fetch(api_URL);
     const JsonData = await response.json();
     const { latitude, longitude, } = JsonData;
     marker.setLatLng([latitude, longitude]);
-    document.getElementById('lat').innerText = latitude;
-    document.getElementById('long').innerText = longitude;
+    map.setView([latitude, longitude], 2);
+    document.getElementById('lat').innerText = latitude.toFixed(2);
+    document.getElementById('long').innerText = longitude.toFixed(2);
 }
 
 getData();
 
+setInterval(getData, 1000);
